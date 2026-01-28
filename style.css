@@ -1,0 +1,385 @@
+/* ESTILO GERAL -------------------------------------------------------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+body{
+    background-color: #000;
+    height: 100vh; /*para que utilize 100% da altura do viewport*/
+}
+.interface{
+    max-width: 1200px;
+    margin: auto; 
+}
+.flex{
+    display: flex;
+
+}
+
+.btn_contato button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color:#fff;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer; /*efeito de passar por cima */
+}
+
+
+/* ESTILO HEADER ------------------------------------------------------ */
+header{
+    padding: 40px 4%; /* para n ficar colado quando diminuir a tela */
+    padding-bottom: 220px;
+
+}
+header>.interface{ /*eu chamo a classe que vai estar diretamente dentro do header } */
+    display: flex;
+    align-items: center;  /*centralizar os elementos */
+    justify-content: space-between; /*e aqui eles se distanciam igualmente no espaço */
+}
+header img{
+    width: 40px;
+}
+
+header a{
+    color: #7c7c7c;
+    text-decoration: none; /*tira o sublinhado dos links */
+    display: inline-block; /*para tranformar em block para propriedades especificas */
+}
+
+header a:hover{
+    color: #fff; /*muda a cor quando passa o mouse por cima */
+    transform: scale(1); /*efeito de zoom */
+}
+header nav ul {
+    list-style-type: none; /*tira os marcadores da lista */
+}
+
+header nav ul li{
+    display: inline-block; /*para que os itens fiquem na horizontal */
+    padding: 0 40px;
+}
+
+.btn_contato button:hover{
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.652);
+}
+.btn_contato button:active{
+    transform: scale(1.05); /*efeito de clique */
+}
+/* ESTILO DO TOPO DO SITE ------------------------------------------------------- */
+section.topo-do-site.flex{    /*estilização esclusiva dessa parte do .flex*/ 
+    align-items: center;
+    justify-content: center;
+}
+.topo-do-site h1{
+    color: #fff;
+    font-size: 40px;
+    line-height: 30px;
+}
+.topo-do-site h1 span{
+    color:#2984fa
+}
+
+.topo-do-site .txt-topo-site p{
+    color: #bebcbc;
+    margin: 50px 0;
+    line-height: 1.8;
+    text-align: justify; /*para justificar o texto, finais ficarem alinhado*/
+
+}
+
+.img-topo-site{
+    margin-left: 20rem;  
+}
+
+.imagem_do_topo{
+    max-width: 350px;
+    height: 100%; /*usar todo o espaço abaixo dos 350 px*/
+    height: auto;
+    border-radius: 50%; /*para deixar a imagem redonda */
+}
+
+.topo-do-site .img-topo-site img {
+    position: relative; /*para poder mexer na posição dela */
+    animation: flutuando 2.5s ease-in-out infinite alternate; /*chamando a animação */
+
+}
+
+/* assim que chama uma animação do prorpio CSS, é necessário definir a animação com @keyframes */
+@keyframes flutuando {
+    0%{
+        top:0;
+    }
+    100%{
+        top:30px;
+    }
+}
+
+/* ESTILO SESSÃO DE EPECIALIDADES ------------------------------------------------------- */
+
+
+/* especificando quais h2 quero estilizar */
+section.especialidades{
+    padding: 40px 4%; /*para dar um espaçamento nas laterais */
+}
+section.especialidades .flex {
+    gap:70px; /*para dar um espaçamento entre os elementos flex */
+    padding: 20px 0;
+}
+
+h2.titulo{   
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    padding: 60px 0;
+}
+
+h2.titulo span{
+    color:#2984fa
+}
+
+
+.especialidades .especialidades-box{
+    color: #fff;
+    padding: 40px; /*parater um espaçamento em torno dos tres elementos*/
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 35px #ffffff26;
+    border-radius: 25px;
+}
+
+.especialidades .especialidades-box:hover{
+    box-shadow: 0px 0px 8px rgba(41, 132, 250, 0.652);
+    transform: scale(1.05); /*efeito de zoom */
+    border: 2px solid #ffffff26;
+    transition: 1s; /*para fazer a transição do efeito hover mais suave */
+
+}
+
+.especialidades .especialidades-box i{ /*para chamar os icones do link do boostrap*/
+    color: #2984fa;
+    font-size: 60px;
+}
+
+.especialidades .especialidades-box h3{
+    margin: 20px 0;
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+.especialidades .especialidades-box p{
+    color: #bebcbc;
+    
+}
+/* ESTILO DA SECÃO SOBRE MIM ------------------------------------------------------- */
+.txt-sobre{
+    color: #fff;
+}
+section.sobre .flex{
+    align-items: center;
+    gap: 100px;
+    margin-top: 30px; /*espaçamento entre os elementos de titulo e texto*/
+    padding: 100px 0;
+
+}
+section.sobre img{
+    width: 20rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.041);
+}
+
+.sobre .txt-sobre h2{
+    font-size: 30px;
+}
+
+.sobre .txt-sobre h2 span{
+    color:rgba(41, 132, 250, 0.652);
+    display: block; /*para que o sapn quebre a inha e va para baixo*/
+}
+
+.sobre .txt-sobre p{
+    margin: 20px 0;  /*espaçamento entre paragrafos*/
+    text-align: justify; /*para justificar o texto, finais ficarem alinhado*/
+}
+
+.btn-social button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #2984fa;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 10px;
+
+}
+
+.sobre .txt-sobre .btn-social button:hover{
+    box-shadow: 0px 0px 8px rgba(41, 132, 250, 0.652);
+    transform: scale(1.05); /*efeito de zoom */
+    border: 2px solid #ffffff26;
+    transition: 0.6s; /*para fazer a transição do efeito hover mais suave */
+}
+
+/* ESTILO SESSÃO PORTIFÓLIO ------------------------------------------------------- */
+section.portfolio{
+    padding: 80px 4%; /*para dar um espaçamento nas laterais */
+    box-shadow: 0px 0px 40px 10px #ffffff25;
+}
+
+section.portfolio .flex{
+    justify-content: space-around; /*para espaçar igualmente os elementos */
+    gap: 15px;
+}
+
+.img-port{
+    position: relative;
+    width: 360px;
+    height: 460px;
+    background-color: #2984fa;
+    border-radius: 20px;
+    background-size: cover; /*para cobrir toda a area do box e ficar bonito*/
+    background-position: 100% 0; /*para posicionar a imagem dentro do box */
+    transition: 8s;
+    cursor: pointer;
+    }
+
+    /* aqui faz esse hover com a propriedade backung position para dar um efeito legal na imagem de rolagem do mouse */
+.img-port:hover{
+    box-shadow: 0px 0px 8px rgba(41, 132, 250, 0.652);
+    background-position: 100% 100%; /*para posicionar a imagem dentro do box */
+    scale: 1.05; /*efeito de zoom */
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center; /*alinhar no centro em relação em cima e embaixo*/
+    justify-content: center; /*alinhar no centro em relação a diretira e esquerda*/
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #00000098;
+    opacity: 0;
+}
+.overlay:hover{
+    opacity: 1;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+/* ESTILO DA SECÃO FORMULÁRIO ------------------------------------------------------- */
+section.formulario{
+    padding: 80px 4%; /*para dar um espaçamento nas laterais */
+
+}
+form{
+    max-width: 500px;
+    margin: auto; /*centralizar*/
+    display: flex; /*fica um do lado do outro*/
+    justify-content: center;
+    flex-direction: column; /*para ficar um embaixo do outro*/
+    gap: 15px; /*espaçamento entre os elementos do form */
+}
+form input, form textarea {
+    width: 100%;
+    background-color: #4d4d4ddc;
+    border: none; /*tira a borda do input que fica normalmente*/
+    outline: none; /*tira a borda azul que aparece quando clica no input */
+    padding: 20px 15px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+}
+
+/* estilizar o texto insivevel de dentro dos campos */
+form textarea::placeholder{
+    color: #ffffffb5;
+}
+form input::placeholder{
+    color: #ffffffb5;
+}
+
+form textarea{
+    resize: none; /*tira a opção de redimensionar a caixa de texto */
+    height: 200px;
+    max-height: 200px;
+}
+form .btn-enviar_forms{ 
+    margin: auto;
+    margin-top: 30px;
+}
+
+form .btn-enviar_forms input{
+    background-color: #2984fa;
+    cursor: pointer;
+    width: 200px;
+}
+
+form .btn-enviar_forms input:hover{
+    box-shadow: 0px 0px 8px rgba(41, 132, 250, 0.652);
+    transform: scale(1.05); /*efeito de zoom */
+    border: 2px solid #ffffff26;
+    transition: 0.6s; /*para fazer a transição do efeito hover mais suave */
+}
+
+/* ESTILO DO RODAPÉ ------------------------------------------------------- */
+footer{
+    padding: 50px 4%;
+    background-color: #181818;
+    box-shadow: 0px 0px 30px 40px #181818;
+}
+
+footer .flex {
+    justify-content: space-between;
+    align-items: center;
+}
+footer img{
+    width: 80px;
+}
+footer .line-footer-cel-email a {
+    color: #fff;
+    text-decoration: none; /*tira o sublinhado dos links */
+}
+footer .line-footer-cel-email a:hover{
+    color: #2984fa; /*muda a cor quando passa o mouse por cima */
+    transform: scale(1); /*efeito de passar por cima */
+}
+
+footer .line-footer-cel-email{
+    padding: 30px 0;
+    color: #fff;
+}
+footer .line-footer-cel-email p{
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+footer .line-footer-cel-email i{
+    color: #2984fa;
+    font-size: 30px;
+}
+
+footer .line-footer-cel-email a{
+    margin-left: 15px;
+}
+
+footer .direitos p{
+    margin-top: 20px;
+    color: #929292;
+    font-size: 15px;
+    border-top: #2984fa solid 1px;
+    padding-top: 50px;
+    text-align: center;
+}
