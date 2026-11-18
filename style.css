@@ -1,385 +1,831 @@
-/* ESTILO GERAL -------------------------------------------------------*/
+:root {
+    --azul: #2984fa;
+    --azul-claro: #62a7ff;
+    --preto: #090a0d;
+    --cinza: #17191f;
+    --texto: #f7f8fa;
+    --texto-suave: #aaaeba;
+    --header-bg: rgba(9, 10, 13, 0.88);
+    --surface: #111318;
+    --surface-border: rgba(255, 255, 255, 0.08);
+    --card-bg: rgba(255, 255, 255, 0.025);
+    --card-border: rgba(255, 255, 255, 0.07);
+    --input-bg: #1b1d23;
+    --placeholder: #9ea1aa;
+    --subtle-border: rgba(255, 255, 255, 0.12);
+    --hero-glow: radial-gradient(circle at 50% 40%, #1b66bd, #0b0d12 68%);
+    --code-card-bg: linear-gradient(145deg, #0f3466, #12151d);
+    --shadow: rgba(0, 0, 0, 0.25);
+    --status-error: #ff8e8e;
+    --status-success: #74d69b;
+}
 
-*{
+:root[data-theme="light"] {
+    --azul: #2269c6;
+    --azul-claro: #2d6fc4;
+    --preto: #f7f8fb;
+    --cinza: #edf0f5;
+    --texto: #1d2430;
+    --texto-suave: #586273;
+    --header-bg: rgba(247, 248, 251, 0.9);
+    --surface: #e4e8ef;
+    --surface-border: rgba(20, 35, 55, 0.12);
+    --card-bg: rgba(255, 255, 255, 0.72);
+    --card-border: rgba(20, 35, 55, 0.12);
+    --input-bg: #fff;
+    --placeholder: #737d8d;
+    --subtle-border: rgba(20, 35, 55, 0.18);
+    --hero-glow: radial-gradient(circle at 50% 40%, #dceaff, #f7f8fb 68%);
+    --code-card-bg: linear-gradient(145deg, #dceaff, #c8d8ee);
+    --shadow: rgba(20, 35, 55, 0.12);
+    --status-error: #b42318;
+    --status-success: #187443;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--preto);
+    color: var(--texto);
     font-family: "Poppins", sans-serif;
-
+    transition: background-color 0.25s, color 0.25s;
 }
 
-body{
-    background-color: #000;
-    height: 100vh; /*para que utilize 100% da altura do viewport*/
+.interface {
+    width: min(1120px, calc(100% - 48px));
+    margin-inline: auto;
 }
-.interface{
-    max-width: 1200px;
-    margin: auto; 
-}
-.flex{
+
+.flex {
     display: flex;
-
 }
 
-.btn_contato button{
-    padding: 10px 40px;
-    font-size: 18px;
-    font-weight: 600;
-    background-color:#fff;
-    border: 0;
-    border-radius: 30px;
-    cursor: pointer; /*efeito de passar por cima */
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-
-/* ESTILO HEADER ------------------------------------------------------ */
-header{
-    padding: 40px 4%; /* para n ficar colado quando diminuir a tela */
-    padding-bottom: 220px;
-
+section {
+    scroll-margin-top: 100px;
 }
-header>.interface{ /*eu chamo a classe que vai estar diretamente dentro do header } */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 18px 0;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--surface-border);
+    backdrop-filter: blur(14px);
+}
+
+.header__inner {
     display: flex;
-    align-items: center;  /*centralizar os elementos */
-    justify-content: space-between; /*e aqui eles se distanciam igualmente no espaço */
-}
-header img{
-    width: 40px;
+    align-items: center;
+    justify-content: space-between;
 }
 
-header a{
-    color: #7c7c7c;
-    text-decoration: none; /*tira o sublinhado dos links */
-    display: inline-block; /*para tranformar em block para propriedades especificas */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-header a:hover{
-    color: #fff; /*muda a cor quando passa o mouse por cima */
-    transform: scale(1); /*efeito de zoom */
-}
-header nav ul {
-    list-style-type: none; /*tira os marcadores da lista */
+.language-toggle {
+    min-width: 46px;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid var(--subtle-border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--texto);
+    font: 600 14px "Poppins", sans-serif;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-header nav ul li{
-    display: inline-block; /*para que os itens fiquem na horizontal */
-    padding: 0 40px;
+.language-toggle:hover {
+    border-color: var(--azul);
+    color: var(--azul-claro);
 }
 
-.btn_contato button:hover{
-    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.652);
+.theme-toggle {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid var(--subtle-border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--texto);
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.2s;
 }
-.btn_contato button:active{
-    transform: scale(1.05); /*efeito de clique */
+
+.theme-toggle:hover {
+    border-color: var(--azul);
+    color: var(--azul-claro);
 }
-/* ESTILO DO TOPO DO SITE ------------------------------------------------------- */
-section.topo-do-site.flex{    /*estilização esclusiva dessa parte do .flex*/ 
+
+:root[data-theme="light"] .logo img,
+:root[data-theme="light"] .logo-footer img {
+    filter: brightness(0);
+}
+
+.logo img,
+.logo-footer img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.menu-desktop ul {
+    display: flex;
+    gap: 34px;
+    list-style: none;
+}
+
+.menu-desktop a {
+    color: var(--texto-suave);
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.menu-desktop a:hover {
+    color: var(--texto);
+}
+
+.btn-contato {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-}
-.topo-do-site h1{
+    min-height: 44px;
+    padding: 10px 24px;
+    border: 1px solid var(--azul);
+    border-radius: 999px;
+    background: var(--azul);
     color: #fff;
-    font-size: 40px;
-    line-height: 30px;
-}
-.topo-do-site h1 span{
-    color:#2984fa
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.25s;
 }
 
-.topo-do-site .txt-topo-site p{
-    color: #bebcbc;
-    margin: 50px 0;
-    line-height: 1.8;
-    text-align: justify; /*para justificar o texto, finais ficarem alinhado*/
-
+.btn-contato:hover {
+    background: transparent;
+    box-shadow: 0 0 24px rgba(41, 132, 250, 0.25);
 }
 
-.img-topo-site{
-    margin-left: 20rem;  
-}
-
-.imagem_do_topo{
-    max-width: 350px;
-    height: 100%; /*usar todo o espaço abaixo dos 350 px*/
-    height: auto;
-    border-radius: 50%; /*para deixar a imagem redonda */
-}
-
-.topo-do-site .img-topo-site img {
-    position: relative; /*para poder mexer na posição dela */
-    animation: flutuando 2.5s ease-in-out infinite alternate; /*chamando a animação */
-
-}
-
-/* assim que chama uma animação do prorpio CSS, é necessário definir a animação com @keyframes */
-@keyframes flutuando {
-    0%{
-        top:0;
-    }
-    100%{
-        top:30px;
-    }
-}
-
-/* ESTILO SESSÃO DE EPECIALIDADES ------------------------------------------------------- */
-
-
-/* especificando quais h2 quero estilizar */
-section.especialidades{
-    padding: 40px 4%; /*para dar um espaçamento nas laterais */
-}
-section.especialidades .flex {
-    gap:70px; /*para dar um espaçamento entre os elementos flex */
-    padding: 20px 0;
-}
-
-h2.titulo{   
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-    padding: 60px 0;
-}
-
-h2.titulo span{
-    color:#2984fa
-}
-
-
-.especialidades .especialidades-box{
-    color: #fff;
-    padding: 40px; /*parater um espaçamento em torno dos tres elementos*/
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0px 0px 35px #ffffff26;
-    border-radius: 25px;
-}
-
-.especialidades .especialidades-box:hover{
-    box-shadow: 0px 0px 8px rgba(41, 132, 250, 0.652);
-    transform: scale(1.05); /*efeito de zoom */
-    border: 2px solid #ffffff26;
-    transition: 1s; /*para fazer a transição do efeito hover mais suave */
-
-}
-
-.especialidades .especialidades-box i{ /*para chamar os icones do link do boostrap*/
-    color: #2984fa;
-    font-size: 60px;
-}
-
-.especialidades .especialidades-box h3{
-    margin: 20px 0;
-    font-size: 24px;
-    margin: 15px 0;
-}
-
-.especialidades .especialidades-box p{
-    color: #bebcbc;
-    
-}
-/* ESTILO DA SECÃO SOBRE MIM ------------------------------------------------------- */
-.txt-sobre{
-    color: #fff;
-}
-section.sobre .flex{
+.topo-do-site {
+    min-height: 660px;
+    display: grid;
     align-items: center;
-    gap: 100px;
-    margin-top: 30px; /*espaçamento entre os elementos de titulo e texto*/
-    padding: 100px 0;
-
-}
-section.sobre img{
-    width: 20rem;
-    border-radius: 20px;
-    box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.041);
+    padding: 70px 0 100px;
 }
 
-.sobre .txt-sobre h2{
-    font-size: 30px;
+.topo-do-site .flex {
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
 }
 
-.sobre .txt-sobre h2 span{
-    color:rgba(41, 132, 250, 0.652);
-    display: block; /*para que o sapn quebre a inha e va para baixo*/
+.txt-topo-site {
+    max-width: 620px;
 }
 
-.sobre .txt-sobre p{
-    margin: 20px 0;  /*espaçamento entre paragrafos*/
-    text-align: justify; /*para justificar o texto, finais ficarem alinhado*/
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--azul-claro);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
 }
 
-.btn-social button{
-    width: 50px;
-    height: 50px;
+.topo-do-site h1 {
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.topo-do-site h1 span {
+    color: var(--azul);
+}
+
+.txt-topo-site > p:not(.eyebrow) {
+    margin: 28px 0;
+    max-width: 590px;
+    color: var(--texto-suave);
+    line-height: 1.85;
+}
+
+.img-topo-site {
+    flex: 0 0 390px;
+    height: 390px;
+    overflow: hidden;
+    border: 1px solid rgba(98, 167, 255, 0.35);
     border-radius: 50%;
-    border: none;
-    background-color: #2984fa;
-    font-size: 25px;
-    cursor: pointer;
-    margin: 0 10px;
-
+    background: var(--hero-glow);
+    box-shadow: 0 25px 80px rgba(41, 132, 250, 0.18);
 }
 
-.sobre .txt-sobre .btn-social button:hover{
-    box-shadow: 0px 0px 8px rgba(41, 132, 250, 0.652);
-    transform: scale(1.05); /*efeito de zoom */
-    border: 2px solid #ffffff26;
-    transition: 0.6s; /*para fazer a transição do efeito hover mais suave */
-}
-
-/* ESTILO SESSÃO PORTIFÓLIO ------------------------------------------------------- */
-section.portfolio{
-    padding: 80px 4%; /*para dar um espaçamento nas laterais */
-    box-shadow: 0px 0px 40px 10px #ffffff25;
-}
-
-section.portfolio .flex{
-    justify-content: space-around; /*para espaçar igualmente os elementos */
-    gap: 15px;
-}
-
-.img-port{
-    position: relative;
-    width: 360px;
-    height: 460px;
-    background-color: #2984fa;
-    border-radius: 20px;
-    background-size: cover; /*para cobrir toda a area do box e ficar bonito*/
-    background-position: 100% 0; /*para posicionar a imagem dentro do box */
-    transition: 8s;
-    cursor: pointer;
-    }
-
-    /* aqui faz esse hover com a propriedade backung position para dar um efeito legal na imagem de rolagem do mouse */
-.img-port:hover{
-    box-shadow: 0px 0px 8px rgba(41, 132, 250, 0.652);
-    background-position: 100% 100%; /*para posicionar a imagem dentro do box */
-    scale: 1.05; /*efeito de zoom */
-}
-
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
+.img-topo-site img {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
-    display: flex;
-    align-items: center; /*alinhar no centro em relação em cima e embaixo*/
-    justify-content: center; /*alinhar no centro em relação a diretira e esquerda*/
-    font-size: 30px;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #00000098;
-    opacity: 0;
-}
-.overlay:hover{
-    opacity: 1;
-    transition: 0.5s;
-    border-radius: 20px;
+    object-fit: cover;
 }
 
-/* ESTILO DA SECÃO FORMULÁRIO ------------------------------------------------------- */
-section.formulario{
-    padding: 80px 4%; /*para dar um espaçamento nas laterais */
-
-}
-form{
-    max-width: 500px;
-    margin: auto; /*centralizar*/
-    display: flex; /*fica um do lado do outro*/
-    justify-content: center;
-    flex-direction: column; /*para ficar um embaixo do outro*/
-    gap: 15px; /*espaçamento entre os elementos do form */
-}
-form input, form textarea {
-    width: 100%;
-    background-color: #4d4d4ddc;
-    border: none; /*tira a borda do input que fica normalmente*/
-    outline: none; /*tira a borda azul que aparece quando clica no input */
-    padding: 20px 15px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 18px;
-}
-
-/* estilizar o texto insivevel de dentro dos campos */
-form textarea::placeholder{
-    color: #ffffffb5;
-}
-form input::placeholder{
-    color: #ffffffb5;
-}
-
-form textarea{
-    resize: none; /*tira a opção de redimensionar a caixa de texto */
-    height: 200px;
-    max-height: 200px;
-}
-form .btn-enviar_forms{ 
-    margin: auto;
-    margin-top: 30px;
-}
-
-form .btn-enviar_forms input{
-    background-color: #2984fa;
-    cursor: pointer;
-    width: 200px;
-}
-
-form .btn-enviar_forms input:hover{
-    box-shadow: 0px 0px 8px rgba(41, 132, 250, 0.652);
-    transform: scale(1.05); /*efeito de zoom */
-    border: 2px solid #ffffff26;
-    transition: 0.6s; /*para fazer a transição do efeito hover mais suave */
-}
-
-/* ESTILO DO RODAPÉ ------------------------------------------------------- */
-footer{
-    padding: 50px 4%;
-    background-color: #181818;
-    box-shadow: 0px 0px 30px 40px #181818;
-}
-
-footer .flex {
-    justify-content: space-between;
-    align-items: center;
-}
-footer img{
-    width: 80px;
-}
-footer .line-footer-cel-email a {
-    color: #fff;
-    text-decoration: none; /*tira o sublinhado dos links */
-}
-footer .line-footer-cel-email a:hover{
-    color: #2984fa; /*muda a cor quando passa o mouse por cima */
-    transform: scale(1); /*efeito de passar por cima */
-}
-
-footer .line-footer-cel-email{
-    padding: 30px 0;
-    color: #fff;
-}
-footer .line-footer-cel-email p{
-    margin: 5px 0;
-    font-size: 18px;
-}
-
-footer .line-footer-cel-email i{
-    color: #2984fa;
-    font-size: 30px;
-}
-
-footer .line-footer-cel-email a{
-    margin-left: 15px;
-}
-
-footer .direitos p{
-    margin-top: 20px;
-    color: #929292;
-    font-size: 15px;
-    border-top: #2984fa solid 1px;
-    padding-top: 50px;
+.titulo {
+    margin-bottom: 52px;
     text-align: center;
+    font-size: clamp(28px, 4vw, 42px);
+}
+
+.titulo span {
+    color: var(--azul);
+}
+
+.titulo .titulo-prefix,
+.txt-sobre h2 .titulo-prefix {
+    color: var(--texto);
+}
+
+.especialidades {
+    padding: 100px 0;
+    background: var(--cinza);
+}
+
+.especialidades .flex {
+    gap: 22px;
+}
+
+.especialidades-box {
+    flex: 1;
+    min-height: 260px;
+    padding: 34px;
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    background: var(--card-bg);
+    transition: 0.25s;
+}
+
+.especialidades-box:hover {
+    transform: translateY(-8px);
+    border-color: rgba(41, 132, 250, 0.55);
+    box-shadow: 0 20px 45px var(--shadow);
+}
+
+.especialidades-box i {
+    color: var(--azul);
+    font-size: 46px;
+}
+
+.especialidades-box h3 {
+    margin: 16px 0 10px;
+    font-size: 22px;
+}
+
+.especialidades-box p {
+    color: var(--texto-suave);
+    line-height: 1.75;
+}
+
+.sobre {
+    padding: 120px 0;
+}
+
+.sobre .flex {
+    align-items: center;
+    gap: 80px;
+}
+
+.img-sobre {
+    flex: 0 0 390px;
+}
+
+.img-sobre img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 20px;
+}
+
+.txt-sobre h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+}
+
+.txt-sobre h2 span {
+    display: block;
+    color: var(--azul);
+}
+
+.txt-sobre > p:not(.eyebrow) {
+    margin-top: 18px;
+    color: var(--texto-suave);
+    line-height: 1.8;
+}
+
+.btn-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.btn-social a {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid var(--subtle-border);
+    border-radius: 50%;
+    color: var(--azul-claro);
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.btn-social a:hover {
+    border-color: var(--azul);
+    background: var(--azul);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.portfolio {
+    padding: 100px 0;
+    background: var(--cinza);
+}
+
+.portfolio .flex {
+    gap: 20px;
+}
+
+.img-port {
+    position: relative;
+    flex: 1;
+    height: 420px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    background-size: cover;
+    background-position: top center;
+}
+
+.portfolio-card-code {
+    background: var(--code-card-bg);
+}
+
+.card-code {
+    height: 100%;
+    display: grid;
+    place-content: center;
+    gap: 12px;
+    text-align: center;
+}
+
+.card-code i {
+    color: var(--azul-claro);
+    font-size: 72px;
+}
+
+.card-code span {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(4, 9, 16, 0.82);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.overlay span {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.img-port:hover .overlay {
+    opacity: 1;
+}
+
+.formulario {
+    padding: 110px 0;
+}
+
+form {
+    width: min(620px, 100%);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 17px 18px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background: var(--input-bg);
+    color: var(--texto);
+    font: 15px "Poppins", sans-serif;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: var(--azul);
+}
+
+form textarea {
+    height: 180px;
+    resize: vertical;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: var(--placeholder);
+}
+
+.btn-enviar-forms {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.btn-enviar-forms input {
+    width: auto;
+    min-width: 210px;
+    border: 0;
+    background: var(--azul);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-enviar-forms input:hover {
+    filter: brightness(1.12);
+}
+
+.form-status {
+    min-height: 24px;
+    color: var(--texto-suave);
+    text-align: center;
+    line-height: 1.5;
+}
+
+.form-status.erro {
+    color: var(--status-error);
+}
+
+.form-status.sucesso {
+    color: var(--status-success);
+}
+
+.form-privacy-note {
+    color: var(--texto-suave);
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.form-privacy-note a,
+.footer-privacy,
+.privacy-section a {
+    color: var(--azul-claro);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+footer {
+    padding: 58px 0 24px;
+    background: var(--surface);
+    border-top: 1px solid var(--surface-border);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(140px, 0.7fr) minmax(220px, 1fr);
+    gap: 64px;
+    padding-bottom: 48px;
+}
+
+.footer-brand {
+    max-width: 360px;
+}
+
+.logo-footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.footer-tagline,
+.footer-contact-copy {
+    margin-top: 14px;
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.footer-heading {
+    margin-bottom: 18px;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.footer-brand .footer-heading {
+    margin: 24px 0 0;
+}
+
+footer .btn-social {
+    gap: 10px;
+    margin-top: 14px;
+}
+
+footer .btn-social a {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+}
+
+.footer-nav-links {
+    display: grid;
+    gap: 12px;
+    list-style: none;
+}
+
+.footer-nav-links a {
+    color: var(--texto-suave);
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-nav-links a:hover,
+.footer-email:hover,
+.footer-contact-link:hover {
+    color: var(--azul-claro);
+}
+
+.footer-contact-copy {
+    margin-top: -5px;
+}
+
+.footer-email {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    color: var(--texto);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+    transition: color 0.2s;
+}
+
+.footer-email i {
+    flex: 0 0 auto;
+    color: var(--azul);
+}
+
+.footer-contact-link {
+    display: inline-flex;
+    margin-top: 18px;
+    color: var(--azul-claro);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding-top: 22px;
+    border-top: 1px solid var(--surface-border);
+}
+
+.direitos {
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+.footer-privacy {
+    flex: 0 0 auto;
+    font-size: 13px;
+}
+
+.privacy-page {
+    max-width: 880px;
+    padding-top: 72px;
+    padding-bottom: 96px;
+}
+
+.privacy-page h1 {
+    margin-bottom: 12px;
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.15;
+}
+
+.privacy-updated {
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+.privacy-intro {
+    margin-top: 28px;
+    color: var(--texto-suave);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.privacy-section {
+    margin-top: 36px;
+}
+
+.privacy-section h2 {
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.privacy-section p,
+.privacy-section li {
+    color: var(--texto-suave);
+    line-height: 1.8;
+}
+
+.privacy-section ul {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+    padding-left: 24px;
+}
+
+@media (max-width: 900px) {
+    .footer-main {
+        grid-template-columns: minmax(0, 1fr) minmax(140px, 0.7fr);
+        gap: 40px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        padding: 42px 0 22px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding-bottom: 34px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .privacy-page {
+        padding-top: 54px;
+        padding-bottom: 72px;
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-desktop {
+        display: none;
+    }
+
+    .topo-do-site {
+        min-height: auto;
+        padding: 90px 0;
+    }
+
+    .topo-do-site .flex,
+    .sobre .flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .txt-topo-site > p:not(.eyebrow) {
+        text-align: left;
+    }
+
+    .img-topo-site {
+        flex-basis: auto;
+        width: min(390px, 80vw);
+        height: min(390px, 80vw);
+        order: -1;
+    }
+
+    .especialidades .flex,
+    .portfolio .flex {
+        flex-wrap: wrap;
+    }
+
+    .especialidades-box {
+        flex-basis: calc(50% - 12px);
+    }
+
+    .img-port {
+        flex-basis: calc(50% - 12px);
+    }
+
+    .sobre .flex {
+        gap: 42px;
+    }
+
+    .img-sobre {
+        flex-basis: auto;
+        width: min(390px, 80vw);
+    }
+
+    .txt-sobre .btn-social {
+        justify-content: center;
+    }
+}
+
+:root[data-theme="light"] .btn-contato:hover {
+    background: var(--azul);
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .interface {
+        width: min(100% - 32px, 1120px);
+    }
+
+    .header .btn-contato {
+        min-height: 40px;
+        padding-inline: 16px;
+        font-size: 13px;
+    }
+
+    .topo-do-site {
+        padding: 60px 0 80px;
+    }
+
+    .topo-do-site h1 {
+        font-size: 48px;
+    }
+
+    .especialidades,
+    .sobre,
+    .portfolio,
+    .formulario {
+        padding: 78px 0;
+    }
+
+    .especialidades .flex,
+    .portfolio .flex {
+        flex-direction: column;
+    }
+
+    .especialidades-box,
+    .img-port {
+        flex-basis: auto;
+    }
+
+    .img-port {
+        width: 100%;
+        height: 380px;
+    }
+
+    .line-footer {
+        gap: 20px;
+    }
+
+    .line-footer-contato p {
+        justify-content: center;
+        font-size: 13px;
+        word-break: break-word;
+    }
 }
