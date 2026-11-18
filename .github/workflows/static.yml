@@ -1,0 +1,36 @@
+name: Deploy para HostGator
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # permite rodar manualmente pela aba Actions
+
+concurrency:
+  group: deploy-hostgator
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Enviar arquivos por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          server-dir: /public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            LICENSE
+            README.md
+            .well-known/**
+            cgi-bin/**
+            .htaccess
