@@ -1,177 +1,187 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio Eliton Penke</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- GOOGLE FONTES -->
+    <meta name="description" content="Portfólio de Eliton Penke, desenvolvedor front-end e back-end." data-i18n-description="description">
+    <title>Eliton Penke | Desenvolvedor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-     <!------------------>
-     <!-- BOOSTRAP ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <!--------------------->
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <header>
-        <div class="interface">
-            <div class="logo">
-                <a href="#">
-                    <img src="imagens/logo.png" alt="logo da empresa">
-                </a>
-            </div><!--logo-->
+    <header class="header">
+        <div class="interface header__inner">
+            <a class="logo" href="#inicio" aria-label="Ir para o início">
+                <img src="assets/brand/ep-logo.png" alt="Logotipo EP">
+            </a>
 
-            <nav class="menu-desktop">
+            <nav class="menu-desktop" aria-label="Navegação principal" data-i18n-aria="navLabel">
                 <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#especialiades">Especialidades</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#inicio" data-i18n="navHome">Início</a></li>
+                    <li><a href="#especialidades" data-i18n="navSkills">Especialidades</a></li>
+                    <li><a href="#sobre" data-i18n="navAbout">Sobre</a></li>
+                    <li><a href="#projetos" data-i18n="navProjects">Projetos</a></li>
                 </ul>
             </nav>
 
-            <div class="btn_contato">
-                <a href="#">
-                    <button>Contato</button>
-                </a>
+            <div class="header-actions">
+                <button class="language-toggle" id="language-toggle" type="button" aria-label="Mudar idioma para inglês">EN</button>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false" title="Ativar tema claro">
+                    <i class="bi bi-sun-fill" aria-hidden="true"></i>
+                </button>
+                <a class="btn-contato" href="#contato" data-i18n="contact">Contato</a>
             </div>
-        </div> <!--interface-->
+        </div>
     </header>
 
     <main>
-        <section class="topo-do-site">
+        <section class="topo-do-site" id="inicio">
+            <div class="interface flex">
+                <div class="txt-topo-site">
+                    <p class="eyebrow" data-i18n="heroEyebrow">DESENVOLVEDOR FULL STACK</p>
+                    <h1>Eliton Penke<span>.</span></h1>
+                    <p data-i18n="heroDescription">Transformo ideias em soluções digitais modernas, responsivas e bem estruturadas. Desenvolvimento front-end, back-end e automações com foco em clareza, desempenho e experiência do usuário.</p>
+                    <a class="btn-contato" href="#contato" data-i18n="heroContact">Entre em contato</a>
+                </div>
+
+                <div class="img-topo-site">
+                    <img src="assets/images/eliton-avatar.png" alt="Retrato ilustrado de Eliton Penke" data-i18n-alt="heroImageAlt">
+                </div>
+            </div>
+        </section>
+
+        <section class="especialidades" id="especialidades">
             <div class="interface">
+                <h2 class="titulo"><span class="titulo-prefix" data-i18n="skillsPrefix">MINHAS</span> <span data-i18n="skillsTitle">ESPECIALIDADES</span></h2>
                 <div class="flex">
-                    <div class="txt-topo-site">
-                        <h1>Eliton Penke<span>.</span></h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt laboriosam veniam saepe tempora, temporibus expedita odit eos excepturi praesentium iusto molestias, inventore officiis sequi nobis! Quos necessitatibus similique id quia.</p>
-                    
-                        <div class="btn_contato">
-                            <a href="#">
-                                <button>Entre em Contato</button>
-                            </a>
-                        </div>
-                    
-                    </div> <!--txt-topo-site-->
+                    <article class="especialidades-box">
+                        <i class="bi bi-window-stack"></i>
+                        <h3>Front-end</h3>
+                        <p data-i18n="skillFrontend">Interfaces modernas, responsivas e acessíveis, desenvolvidas para oferecer uma ótima experiência em qualquer dispositivo.</p>
+                    </article>
 
-                    <div class="img-topo-site">
-                        <img class="imagem_do_topo"  src="imagens/imagem_topo.jpg" alt="foto de perfil">
-                    </div> <!--img-topo-site-->
+                    <article class="especialidades-box">
+                        <i class="bi bi-robot"></i>
+                        <h3 data-i18n="skillAutomationTitle">Automação</h3>
+                        <p data-i18n="skillAutomation">Processos inteligentes e integrações que reduzem tarefas repetitivas e ajudam a economizar tempo no dia a dia.</p>
+                    </article>
 
-                </div> <!--flex-->
-            </div> <!--interface-->
-        </section> <!--topo-do-site-->
-        
-        <section class="especialidades">
-            <div class="interface">
-                <h2 class="titulo" >MINHAS <span>ESPECIALIDADES</span>.</h2>
-                <div class="flex">
-                    <div class="especialidades-box">
-                        <i class="bi bi-database-fill-gear"></i>
-                        <h3>Front <span>End</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adip isicing elit. Quisquam, quidem.</p>
-                    </div> <!--especialidades-box-->
-                    
-                    <div class="especialidades-box">
-                        <i class="bi bi-database-fill-gear"></i>
-                        <h3>Automação</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </div> <!--especialidades-box-->
-                    
-                    <div class="especialidades-box">
-                        <i class="bi bi-terminal"></i>
-                        <h3>Back <span>End</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </div> <!--especialidades-box-->
-                </div> <!--flex-->
-            </div> <!--interface-->
-        </section> <!--especialidades-->
+                    <article class="especialidades-box">
+                        <i class="bi bi-braces"></i>
+                        <h3>Back-end</h3>
+                        <p data-i18n="skillBackend">Estruturas de dados, APIs e regras de negócio organizadas, seguras e preparadas para crescer junto com o projeto.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <section class="sobre">
+        <section class="sobre" id="sobre">
             <div class="interface">
                 <div class="flex">
                     <div class="img-sobre">
-                        <img src="/imagens/foto_de_perfil_inteira.png" alt="foto de perfil">
-                    </div> <!--img-sobre-->
+                        <img src="assets/images/eliton-perfil.png" alt="Eliton Penke" data-i18n-alt="aboutImageAlt">
+                    </div>
 
                     <div class="txt-sobre">
-                        <h2>MUITO PRAZER, <span>SOU ELITON PENKE</span></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa suscipit sed quos quasi et facilis, tempora nesciunt veniam ipsam nihil inventore perferendis ad eligendi. Eveniet repudiandae magni facere recusandae minima?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa suscipit sed quos quasi et facilis, tempora nesciunt veniam ipsam nihil inventore perferendis ad eligendi. Eveniet repudiandae magni facere recusandae minima?</p>
+                        <p class="eyebrow" data-i18n="aboutEyebrow">QUEM SOU EU</p>
+                        <h2><span class="titulo-prefix" data-i18n="aboutPrefix">Muito prazer,</span> <span data-i18n="aboutTitle">sou Eliton Penke</span></h2>
+                        <p data-i18n="aboutParagraphOne">Sou desenvolvedor apaixonado por tecnologia e por criar soluções que fazem sentido para pessoas e empresas. Gosto de unir programação, organização e atenção aos detalhes para entregar produtos simples de usar e preparados para evoluir.</p>
+                        <p data-i18n="aboutParagraphTwo">Estou sempre aprendendo novas ferramentas e buscando melhorar tanto a parte visual quanto a estrutura técnica dos projetos em que trabalho.</p>
                         <div class="btn-social">
-                            <a href="https://www.instagram.com/eliton_penke/" target="_blank" rel="noopener noreferrer" ><button><i class="bi bi-instagram"></i></button></a>
-                            <a href="https://github.com/ElitonPenke" target="_blank" rel="noopener noreferrer" ><button><i class="bi bi-github"></i></button></a>
-                            <a href="https://www.linkedin.com/in/elitonpenke/" target="_blank" rel="noopener noreferrer" ><button><i class="bi bi-linkedin"></i></button></a>
-
+                            <a href="https://www.instagram.com/eliton_penke/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="https://github.com/ElitonPenke" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="https://www.linkedin.com/in/elitonpenke/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         </div>
-                    </div> <!--txt-sobre-->
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                </div> <!--flex-->
-            </div> <!--interface-->
-        </section> <!--sobre-->
-
-        <section class="portfolio">
+        <section class="portfolio" id="projetos">
             <div class="interface">
-                <h2 class="titulo">MEUS <span>PROJETOS</span>.</h2>
+                <h2 class="titulo"><span class="titulo-prefix" data-i18n="projectsPrefix">MEUS</span> <span data-i18n="projectsTitle">PROJETOS</span></h2>
                 <div class="flex">
-                    <div class="img-port" style="background-image: url(/imagens/backung_site_portifolio.png);" >
-                        <div class="overlay">Projeto 1</div>
-                    </div> <!--img-port-->
-                    <div class="img-port" style="background-image: url(/imagens/backund_site_portifolio_2.png);" >
-                        <div class="overlay">Projeto 2</div>
-                    </div>
-                    <div class="img-port" style="background-image: url(/imagens/backung_site_portifolio.png);" >
-                        <div class="overlay">Projeto 3</div>
-                    </div>
-                </div> <!--flex-->
-            </div> <!--interface-->
-        </section> <!--portfolio-->
+                    <article class="img-port" style="background-image: url('assets/projects/projeto-construtora.png');">
+                        <div class="overlay"><span data-i18n="projectBuilder">Site para Construtora</span></div>
+                    </article>
+                    <article class="img-port" style="background-image: url('assets/projects/projeto-transportadora.png');">
+                        <div class="overlay"><span data-i18n="projectTransport">Site para Transportadora</span></div>
+                    </article>
+                    <article class="img-port portfolio-card-code">
+                        <div class="card-code">
+                            <i class="bi bi-code-slash"></i>
+                            <span data-i18n="projectPortfolio">Portfólio Pessoal</span>
+                        </div>
+                        <div class="overlay"><span data-i18n="projectPortfolioOverlay">Meu Portfólio</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <section class="formulario">
+        <section class="formulario" id="contato">
             <div class="interface">
-                <h2 class="titulo">FALA <span>COMIGO</span>.</h2>
-                <!-- cria um formulario de contato com os campos: nome, email, celular e mensagem, porem para enviar o form,  fazer back end -->
-                <form action="">
-                    <!-- aqui é cetado oplace... o texto temporario que vai fiar na caixinha  -->
-                    <input type="text" name="" id="" placeholder="Seu nome: " required> 
-                    <input type="text" name="" id="" placeholder="Seu email: "required> 
-                    <input type="text" name="" id="" placeholder="Seu celular: "required>
-                    <textarea name="" id="" placeholder="Sua Mensagem" required></textarea> 
-                    <div class="btn-enviar_forms">
-                        <!-- tem que ser um input, n um buttun, pq é pra enviar o form -->
-                        <input type="submit" value="Enviar Mensagem">
+                <h2 class="titulo"><span class="titulo-prefix" data-i18n="contactPrefix">VAMOS</span> <span data-i18n="contactTitle">CONVERSAR</span></h2>
+                <form id="form-contato">
+                    <input type="text" name="nome" placeholder="Seu nome" data-i18n-placeholder="namePlaceholder" autocomplete="name" required>
+                    <input type="email" name="email" placeholder="Seu e-mail" data-i18n-placeholder="emailPlaceholder" autocomplete="email" required>
+                    <input type="tel" name="celular" placeholder="Seu celular" data-i18n-placeholder="phonePlaceholder" autocomplete="tel">
+                    <textarea name="mensagem" placeholder="Conte um pouco sobre seu projeto" data-i18n-placeholder="messagePlaceholder" required></textarea>
+                    <div class="btn-enviar-forms">
+                        <input type="submit" value="Enviar mensagem" data-i18n-value="sendMessage">
                     </div>
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
                 </form>
-            </div> <!--interface-->
-        </section> <!--formulario-->
-                
+            </div>
+        </section>
     </main>
-    <footer>
+
+    <footer class="site-footer">
         <div class="interface">
-                <div class="line-footer">
-                    <div class="flex">
-                        <div class="logo-footer">
-                            <img src="imagens/logo.png" alt="logo da empresa">
-                        </div> <!--logo-footer-->
-                        <div class="btn-social">
-                            <a href="https://www.instagram.com/eliton_penke/" target="_blank" rel="noopener noreferrer" ><button><i class="bi bi-instagram"></i></button></a>
-                            <a href="https://github.com/ElitonPenke" target="_blank" rel="noopener noreferrer" ><button><i class="bi bi-github"></i></button></a>
-                            <a href="https://www.linkedin.com/in/elitonpenke/" target="_blank" rel="noopener noreferrer" ><button><i class="bi bi-linkedin"></i></button></a>
-                        </div>  <!--btn-social-->
-                    </div> <!--flex-->
-                </div> <!--line-footer-->
-            <div class="line-footer-cel-email">
-                <p><i class="bi bi-envelope-fill"></i> <a href="mailto:eliton.gustavo.penke@gmail.com">eliton.gustavo.penke@gmail.com</a></p>
-                <p><i class="bi bi-telephone-fill"></i> <a href="tel:+5543999999999">(43) 99999-9999</a></p>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a class="logo-footer" href="#inicio" aria-label="Voltar ao início" data-i18n-aria="backToTop">
+                        <img src="assets/brand/ep-logo.png" alt="Logotipo EP">
+                        <span>Eliton Penke</span>
+                    </a>
+                    <p class="footer-tagline" data-i18n="footerTagline">Desenvolvedor focado em criar soluções digitais úteis, acessíveis e bem construídas.</p>
+                    <h2 class="footer-heading" data-i18n="footerSocialHeading">Conecte-se</h2>
+                    <div class="btn-social">
+                        <a href="https://www.instagram.com/eliton_penke/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://github.com/ElitonPenke" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/elitonpenke/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <nav class="footer-column" aria-label="Links do site" data-i18n-aria="footerNavLabel">
+                    <h2 class="footer-heading" data-i18n="footerNavHeading">Navegação</h2>
+                    <ul class="footer-nav-links">
+                        <li><a href="#inicio" data-i18n="navHome">Início</a></li>
+                        <li><a href="#especialidades" data-i18n="navSkills">Especialidades</a></li>
+                        <li><a href="#sobre" data-i18n="navAbout">Sobre</a></li>
+                        <li><a href="#projetos" data-i18n="navProjects">Projetos</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-column footer-contact">
+                    <h2 class="footer-heading" data-i18n="footerContactHeading">Vamos conversar</h2>
+                    <p class="footer-contact-copy" data-i18n="footerContactCopy">Tem um projeto ou uma ideia? Me conte o que você precisa.</p>
+                    <a class="footer-email" href="mailto:elitonassessoria@gmail.com">
+                        <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                        <span>elitonassessoria@gmail.com</span>
+                    </a>
+                    <a class="footer-contact-link" href="#contato" data-i18n="footerEmailCta">Entre em contato</a>
+                </div>
             </div>
-            <div class="direitos">
-                <p>© 2026 Eliton Penke. Todos os direitos reservados.</p>
+
+            <div class="footer-bottom">
+                <p class="direitos" data-i18n="copyright">© 2026 Eliton Penke. Todos os direitos reservados.</p>
+                <a class="footer-privacy" href="privacidade.html" data-i18n="privacyLink">Política de Privacidade</a>
             </div>
-        </div> <!--interface-->
+        </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
