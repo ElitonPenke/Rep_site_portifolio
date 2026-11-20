@@ -104,19 +104,44 @@
         <section class="portfolio" id="projetos">
             <div class="interface">
                 <h2 class="titulo"><span class="titulo-prefix" data-i18n="projectsPrefix">MEUS</span> <span data-i18n="projectsTitle">PROJETOS</span></h2>
+                <p class="portfolio-intro" data-i18n="projectsIntro">Uma seleção de projetos que transformam necessidades reais em experiências digitais claras, responsivas e funcionais.</p>
+                <ul class="portfolio-highlights" aria-label="Principais habilidades" data-i18n-aria="portfolioSkillsLabel">
+                    <li><i class="bi bi-phone" aria-hidden="true"></i><span data-i18n="projectSkillResponsive">Interfaces responsivas</span></li>
+                    <li><i class="bi bi-code-slash" aria-hidden="true"></i><span data-i18n="projectSkillFullStack">Desenvolvimento front-end e back-end</span></li>
+                    <li><i class="bi bi-lightning-charge" aria-hidden="true"></i><span data-i18n="projectSkillAutomation">Automações e integrações</span></li>
+                </ul>
                 <div class="flex">
-                    <article class="img-port" style="background-image: url('assets/projects/projeto-construtora.png');">
-                        <div class="overlay"><span data-i18n="projectBuilder">Site para Construtora</span></div>
-                    </article>
-                    <article class="img-port" style="background-image: url('assets/projects/projeto-transportadora.png');">
-                        <div class="overlay"><span data-i18n="projectTransport">Site para Transportadora</span></div>
-                    </article>
-                    <article class="img-port portfolio-card-code">
-                        <div class="card-code">
-                            <i class="bi bi-code-slash"></i>
-                            <span data-i18n="projectPortfolio">Portfólio Pessoal</span>
+                    <article class="project-item">
+                        <div class="project-preview">
+                            <img src="assets/projects/projeto-construtora.png" alt="Captura de tela do site de uma construtora" data-i18n-alt="projectBuilderAlt" loading="lazy">
                         </div>
-                        <div class="overlay"><span data-i18n="projectPortfolioOverlay">Meu Portfólio</span></div>
+                        <div class="project-info">
+                            <span class="project-card-type"><i class="bi bi-buildings" aria-hidden="true"></i><span data-i18n="projectBuilderType">Site institucional</span></span>
+                            <h3 data-i18n="projectBuilder">Site para Construtora</h3>
+                            <p data-i18n="projectBuilderDescription">Uma presença digital para apresentar empreendimentos, serviços e diferenciais da construtora.</p>
+                        </div>
+                    </article>
+                    <article class="project-item">
+                        <a class="project-link" href="https://jaassessoriasr.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="project-preview">
+                                <img src="assets/projects/projeto-transportadora.png" alt="Captura de tela do site de uma transportadora" data-i18n-alt="projectTransportAlt" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <span class="project-card-type"><i class="bi bi-truck" aria-hidden="true"></i><span data-i18n="projectTransportType">Site corporativo</span></span>
+                                <h3 data-i18n="projectTransport">Site para Transportadora</h3>
+                                <p data-i18n="projectTransportDescription">Um site para apresentar a empresa, seus serviços e facilitar pedidos de cotação.</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="project-item">
+                        <div class="project-preview">
+                            <img src="assets/projects/projeto-salao-beleza.png" alt="Captura de tela do site do Salão de Beleza Kátia" data-i18n-alt="projectSalonAlt" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-card-type"><i class="bi bi-scissors" aria-hidden="true"></i><span data-i18n="projectSalonType">Site para salão</span></span>
+                            <h3 data-i18n="projectSalon">Salão de Beleza Kátia</h3>
+                            <p data-i18n="projectSalonDescription">Um site acolhedor para apresentar serviços, mostrar trabalhos e facilitar o contato com o salão.</p>
+                        </div>
                     </article>
                 </div>
             </div>
